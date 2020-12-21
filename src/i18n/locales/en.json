@@ -1,0 +1,35 @@
+{
+    "message": "hello i18n !!",
+    "wizard": {
+        "prev": "Back",
+        "next": "Next",
+        "done": "Done",
+        "step1Title": "Date",
+        "step2Title": "Room",
+        "step3Title": "Payment" 
+    },
+    "labels":{
+        "checkinDate":"Check-in Date:",
+        "checkoutDate":"Check-out Date:",
+        "room":"Room Type:",
+        "view":"View Type:"
+    },
+
+    "card": {
+      "cardHolder": "Card Holder",
+      "fullName": "Full Name",
+      "expires": "Expires",
+      "MM": "MM",
+      "YY": "YY"
+    },
+    "cardForm": {
+      "cardNumber": "Card Number",
+      "cardName": "Card Name",
+      "expirationDate": "Expiration Date",
+      "month": "Month",
+      "year": "Year",
+      "CVV": "CVV",
+      "submit": "Submit",
+      "invalidCardNumber": "Invalid Card Number"
+    }
+}

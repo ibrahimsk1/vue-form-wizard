@@ -1,28 +1,34 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Intercept :interceptData="interceptData">
+      <Reservation :setinterceptData="setinterceptData" />
+    </Intercept>
   </div>
 </template>
 
+
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import Reservation from "./screen/Reservation"
+import Intercept from "./components/Intercept"
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  components: { Reservation, Intercept },
+  data() {
+    return {
+      interceptData: {}
+    }
+  },
+  methods: {
+    setinterceptData(data) {
+      this.interceptData = data;
+    }
   }
+
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss">
+@import './src/assets/style.scss';
 </style>
