@@ -9,11 +9,6 @@
 
 }
 
-$wizard-color-neutral: #ccc !default;
-$wizard-color-active: #0062cc !default;
-$wizard-color-complete: #2ba019 !default;
-$wizard-step-width-height: 64px !default;
-$wizard-step-font-size: 24px !default;
 
 @import "https://fonts.googleapis.com/css?family=Roboto";
 
@@ -801,6 +796,77 @@ body {
 
 
 /*2.WIZARD*/
+$wizard-color-neutral: #c4d7e6 !default;
+$wizard-color-active: #1f77b4 !default;
+$wizard-color-complete: #55a868 !default;
+$wizard-step-width-height: 64px !default;
+$wizard-step-font-size: 24px !default;
+
+
+.step-wrapper {
+    padding: 20px 0;
+    display: none;
+
+    &.active {
+        display: block;
+    }
+}
+
+.step-indicator {
+    border-collapse: separate;
+    display: table;
+    position: relative;
+    table-layout: fixed;
+    text-align: center;
+    vertical-align: middle;
+    padding-left: 0px;
+    width: 100%;
+    color: black;
+
+    &__div {
+        display: table-cell;
+        position: relative;
+        padding: 0px;
+        border: 1px solid $wizard-color-neutral;
+        background-size: 320% 100%;
+        background-image: linear-gradient(to right, #c4d7e6 0, #c4d7e6 33%, #66a5ad 33%, #66a5ad 66%, #bcffbc 66%, #bcffbc 100%);
+        background-position: 99%;
+        transition: background-position 1s;
+
+    }
+
+    .active {
+        background-position: 66%;
+    }
+
+
+    .step {
+        background-color: #fff;
+
+        color: $wizard-color-neutral;
+        font-size: $wizard-step-font-size;
+        height: $wizard-step-width-height;
+        // line-height: $wizard-step-width-height;
+        // margin: 0 auto;
+        // position: relative;
+        // width: $wizard-step-width-height;
+        z-index: 1;
+    }
+
+    .caption {
+        color: $wizard-color-neutral;
+        padding: 11px 16px;
+
+    }
+}
+
+/*2.WIZARD*/
+
+
+
+
+
+
 .step-wrapper {
     padding: 20px 0;
     display: none;
@@ -823,27 +889,7 @@ body {
         position: relative;
         float: none;
         padding: 0;
-        width: 1%;
-
-        &:after {
-            background-color: $wizard-color-neutral;
-            content: "";
-            display: block;
-            height: 5px;
-            position: absolute;
-            width: 100%;
-            top: $wizard-step-width-height/2;
-        }
-
-        &:after {
-            left: 50%;
-        }
-
-        &:last-child {
-            &:after {
-                width: 0%;
-            }
-        }
+        // width: 1%;       
 
         &.active {
             .step {
@@ -857,10 +903,6 @@ body {
         }
 
         &.complete {
-            &:after {
-                background-color: $wizard-color-complete;
-            }
-
             .step {
                 border-color: $wizard-color-complete;
                 color: $wizard-color-complete;
@@ -892,4 +934,92 @@ body {
     }
 }
 
-/*2.WIZARD*/
+
+
+
+.container {
+    border: 2px solid;
+    border-radius: 4px;
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    height: 100px;
+    box-sizing: border-box;
+    padding: 0px !important;
+    max-height: 20px;
+
+
+    .item {
+        /* float:left; */
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        max-height: 20px;
+        background:linear-gradient(to right, #c4d7e6 0, #c4d7e6 33.3%, #55a868 33.3%, #55a868 66.6%, #1f77b4 66.6%, #1f77b4 100%);
+        // background:linear-gradient(to right, #c4d7e6 0, #c4d7e6 33.3%, #55a868 33.3%, #55a868 66.6%, #1f77b4 66.6%, #1f77b4 100%);
+        background-size: 300% 100%;
+        background-position: 0;
+        transition:background-position 2s;
+    }
+
+    .active{
+        background-position: -50%;
+        // transition-delay:1s;
+    }
+
+    .complete{
+        background-position: -100.1%;
+        // transition-delay:1s;
+    }
+
+    .idle{
+        background-position: 0%;
+        // transition-delay:1s;
+    }
+}
+
+    // &:after {
+    //     background-color: $wizard-color-neutral;
+    //     content: "";
+    //     display: block;
+    //     height: 5px;
+    //     position: absolute;
+    //     width: 100%;
+    //     top: $wizard-step-width-height/2;
+    // }
+
+    // &:after {
+    //     left: 50%;
+    // }
+
+    // &:last-child {
+    //     &:after {
+    //         width: 0%;
+    //     }
+    // }
+
+    // &.active {
+    //     .step {
+    //         border-color: $wizard-color-active;
+    //         color: $wizard-color-active;
+    //     }
+
+    //     .caption {
+    //         color: $wizard-color-active;
+    //     }
+    // }
+
+    // &.complete {
+    //     &:after {
+    //         background-color: $wizard-color-complete;
+    //     }
+
+    //     .step {
+    //         border-color: $wizard-color-complete;
+    //         color: $wizard-color-complete;
+    //     }
+
+    //     .caption {
+    //         color: $wizard-color-complete;
+    //     }
+    // }

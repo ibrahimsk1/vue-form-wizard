@@ -347,13 +347,8 @@ export default {
 }
 
 .skewed {
-  background: rgb(44, 62, 80);
-  background: linear-gradient(
-    180deg,
-    rgba(44, 62, 80, 1) 10%,
-    rgba(255, 255, 255, 1) 50%,
-    rgba(44, 62, 80, 1) 90%
-  );
+background: rgb(255,255,255);
+background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(44,62,80,1) 25%, rgba(255,255,255,1) 50%, rgba(44,62,80,1) 75%, rgba(255,255,255,1) 100%);
   background-clip: content-box;
   min-height: 20px;
   border-radius: 20px;

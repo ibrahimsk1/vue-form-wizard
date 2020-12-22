@@ -2,6 +2,7 @@
   <div style="text-align: center">
     <WizardNavigation :tabs="wizardHeader" :currentActive="currentActive" />
 
+
     <div style="flex: 1; text-align: center" class="mt-5 mb-5">
       <transition-group :name="transition" >
         <slot></slot>
