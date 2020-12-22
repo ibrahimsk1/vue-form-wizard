@@ -108,6 +108,11 @@
         </div>
       </div>
     </Tab>
+    <Tab :satisfied="invaildCard" v-show="currentActive == 3" :key="4">
+      <div v-show="currentActive == 3">
+        <div>Done!</div>
+      </div>
+    </Tab>
   </Wizard>
 </template>
 
@@ -268,7 +273,7 @@ export default {
       }
     },
 
-    invaildCard() {
+    async invaildCard() {
       let msg = "";
       let check = true
       if (this.$refs.refCard.$props.formData.cardName === "") {
@@ -296,18 +301,23 @@ export default {
 
       if (check) {
         this.setinterceptData({ type: "loading" })
-        this.paymentControl().then(
-          result => this.setinterceptData({ type: "success", msg: result })
-        )
+        let result = await this.paymentControl()
+        if(result){
+            this.setinterceptData({ type: "success", msg: result });
+            return true;
+        }
+        console.log(result);
       } else {
         this.setinterceptData({ type: "warning", msg: msg })
+        return false;
       }
-
-      return false;
 
     },
 
-  }
+  },
+  
+
+
 
 }
 </script>
@@ -347,8 +357,15 @@ export default {
 }
 
 .skewed {
-background: rgb(255,255,255);
-background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(44,62,80,1) 25%, rgba(255,255,255,1) 50%, rgba(44,62,80,1) 75%, rgba(255,255,255,1) 100%);
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(44, 62, 80, 1) 25%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(44, 62, 80, 1) 75%,
+    rgba(255, 255, 255, 1) 100%
+  );
   background-clip: content-box;
   min-height: 20px;
   border-radius: 20px;

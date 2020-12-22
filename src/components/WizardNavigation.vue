@@ -10,8 +10,8 @@
         :ix="ix"
       ></li>
     </ol>
-    <div style="position:relative">
-    <div class="arrow up" :style="leftCalc"></div>
+    <div style="position: relative">
+      <div class="arrow up" :style="leftCalc"></div>
     </div>
     <div class="container">
       <div
@@ -37,11 +37,15 @@ export default {
     WizardBar
   },
   props: ["tabs", "currentActive"],
-  computed:{
-    leftCalc(){
+  computed: {
+    leftCalc() {
+      if (this.currentActive === this.tabs.header.length) {
+        return { "display": "none"};
+      }
       let interval = 100 / this.tabs.header.length;
       let leftVal = this.currentActive * interval + interval / 2;
-      return {"left":`${leftVal}%`}
+      return { "left": `${leftVal}%` }
+
     }
   }
 }
@@ -53,12 +57,10 @@ export default {
   border-width: 0 3px 3px 0;
   display: inline-block;
   padding: 3px;
-  position:absolute;
-  top:-10px;
-  transition:all 2s ease;
+  position: absolute;
+  top: -10px;
+  transition: all 2s ease;
 }
-
-
 
 .up {
   transform: rotate(-135deg);

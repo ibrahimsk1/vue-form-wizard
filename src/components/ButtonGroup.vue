@@ -19,7 +19,7 @@
 export default {
   computed: {
     nextButtonTitle() {
-      if (this.currentActive < this.totalTabs - 1) {
+      if (this.currentActive < this.totalTabs - 2) {
         return this.$t('wizard.next');
       } else {
         return this.$t('wizard.done');
@@ -32,6 +32,7 @@ export default {
       return !(this.currentActive > 0);
     },
     checkNextButton() {
+      console.log(2);
       if (this.currentActive < this.totalTabs) {
         return false;
       }
@@ -40,8 +41,9 @@ export default {
     previousTab() {
       this.changeCurrentActive("decrease");
     },
-    nextTab() {
-      const valid = this.tabs[this.currentActive].satisfied();
+    async nextTab() {
+      let valid = true;
+      valid = await this.tabs[this.currentActive].satisfied();
       if (valid) {
         if (this.currentActive !== this.totalTabs - 1) {
           this.changeCurrentActive("increase");

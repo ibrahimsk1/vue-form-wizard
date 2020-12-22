@@ -2,7 +2,7 @@ export let paymentControl = function() {
     return new Promise(function (resolve, reject) {
         try {
             setTimeout(function () {
-                resolve("done")
+                resolve(true)
             }, 3000);
         } catch (err) {
             reject(err);

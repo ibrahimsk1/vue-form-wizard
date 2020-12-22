@@ -803,62 +803,7 @@ $wizard-step-width-height: 64px !default;
 $wizard-step-font-size: 24px !default;
 
 
-.step-wrapper {
-    padding: 20px 0;
-    display: none;
 
-    &.active {
-        display: block;
-    }
-}
-
-.step-indicator {
-    border-collapse: separate;
-    display: table;
-    position: relative;
-    table-layout: fixed;
-    text-align: center;
-    vertical-align: middle;
-    padding-left: 0px;
-    width: 100%;
-    color: black;
-
-    &__div {
-        display: table-cell;
-        position: relative;
-        padding: 0px;
-        border: 1px solid $wizard-color-neutral;
-        background-size: 320% 100%;
-        background-image: linear-gradient(to right, #c4d7e6 0, #c4d7e6 33%, #66a5ad 33%, #66a5ad 66%, #bcffbc 66%, #bcffbc 100%);
-        background-position: 99%;
-        transition: background-position 1s;
-
-    }
-
-    .active {
-        background-position: 66%;
-    }
-
-
-    .step {
-        background-color: #fff;
-
-        color: $wizard-color-neutral;
-        font-size: $wizard-step-font-size;
-        height: $wizard-step-width-height;
-        // line-height: $wizard-step-width-height;
-        // margin: 0 auto;
-        // position: relative;
-        // width: $wizard-step-width-height;
-        z-index: 1;
-    }
-
-    .caption {
-        color: $wizard-color-neutral;
-        padding: 11px 16px;
-
-    }
-}
 
 /*2.WIZARD*/
 
@@ -883,6 +828,8 @@ $wizard-step-font-size: 24px !default;
     table-layout: fixed;
     text-align: center;
     vertical-align: middle;
+    padding-left: 0px;
+    width: 100%;
 
     li {
         display: table-cell;
@@ -978,48 +925,4 @@ $wizard-step-font-size: 24px !default;
     }
 }
 
-    // &:after {
-    //     background-color: $wizard-color-neutral;
-    //     content: "";
-    //     display: block;
-    //     height: 5px;
-    //     position: absolute;
-    //     width: 100%;
-    //     top: $wizard-step-width-height/2;
-    // }
-
-    // &:after {
-    //     left: 50%;
-    // }
-
-    // &:last-child {
-    //     &:after {
-    //         width: 0%;
-    //     }
-    // }
-
-    // &.active {
-    //     .step {
-    //         border-color: $wizard-color-active;
-    //         color: $wizard-color-active;
-    //     }
-
-    //     .caption {
-    //         color: $wizard-color-active;
-    //     }
-    // }
-
-    // &.complete {
-    //     &:after {
-    //         background-color: $wizard-color-complete;
-    //     }
-
-    //     .step {
-    //         border-color: $wizard-color-complete;
-    //         color: $wizard-color-complete;
-    //     }
-
-    //     .caption {
-    //         color: $wizard-color-complete;
-    //     }
-    // }
+   
