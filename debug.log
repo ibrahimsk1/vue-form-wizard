@@ -4,3 +4,8 @@
 [1220/230311.790:ERROR:directory_reader_win.cc(43)] FindFirstFile: Sistem belirtilen yolu bulamýyor. (0x3)
 [1220/231526.018:ERROR:directory_reader_win.cc(43)] FindFirstFile: Sistem belirtilen yolu bulamýyor. (0x3)
 [1221/103108.248:ERROR:directory_reader_win.cc(43)] FindFirstFile: Sistem belirtilen yolu bulamýyor. (0x3)
+[1221/151312.263:ERROR:process_info.cc(329)] VirtualQueryEx: Eriþim engellendi. (0x5)
+[1221/151312.264:ERROR:process_info.cc(556)] ReadMemoryInfo failed
+[1221/151312.264:ERROR:scoped_process_suspend.cc(40)] NtResumeProcess: Sona ermekte olan bir iþleme eriþmeye çalýþýldý. (0xc000010a)
+[1221/151706.455:ERROR:directory_reader_win.cc(43)] FindFirstFile: Sistem belirtilen yolu bulamýyor. (0x3)
+[1222/003113.921:ERROR:directory_reader_win.cc(43)] FindFirstFile: Sistem belirtilen yolu bulamýyor. (0x3)

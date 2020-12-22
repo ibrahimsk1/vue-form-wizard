@@ -50,9 +50,9 @@ export default {
     },
     changeCurrentActive(type) {
       if (type == "increase") {
-        this.changeTab(this.currentActive + 1)
+        this.changeTab(this.currentActive + 1 , "increase")
       } else if (type == "decrease") {
-        this.changeTab(this.currentActive - 1)
+        this.changeTab(this.currentActive - 1 , "decrease")
       }
     }
   },

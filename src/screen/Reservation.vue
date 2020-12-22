@@ -1,113 +1,111 @@
 <template>
-  <Wizard :currentActive="currentActive" :changeTab="changeTab">
-    <Tab
-      :title="$t('wizard.step1Title')"
-      :selected="currentActive == 0"
-      :satisfied="checkinSatisfied"
-      icon_class="calendar-date"
-    >
-      <div class="card-form">
-        <div class="card-form__inner space-evenly-column skewed">
-          <b-form-group
-            label-cols-sm="4"
-            label-cols-lg="3"
-            content-cols-sm="8"
-            content-cols-lg="7"
-            :label="$t('labels.checkinDate')"
-            label-for="checkinPickerl"
-          >
-            <b-form-datepicker
-              id="checkinPicker"
-              v-model="checkin"
-              class="mb-2 col"
-              :min="minDatein"
-            ></b-form-datepicker>
-          </b-form-group>
-          <b-form-group
-            label-cols-sm="4"
-            label-cols-lg="3"
-            content-cols-sm
-            content-cols-lg="7"
-            :label="$t('labels.checkoutDate')"
-            label-for="checkoutPicker"
-            style="color: white"
-          >
-            <b-form-datepicker
-              id="checkoutPicker"
-              v-model="checkout"
-              class="mb-2"
-              :min="minDateout"
-            ></b-form-datepicker>
-          </b-form-group>
+  <Wizard
+    :currentActive="currentActive"
+    :changeTab="changeTab"
+    :transition="transition"
+  >
+    <Tab :satisfied="checkinSatisfied" v-show="currentActive == 0" :key="0">
+      <div v-show="currentActive == 0">
+        <div class="card-form">
+          <div class="card-form__inner space-evenly-column">
+            <b-form-group
+              label-cols-sm="4"
+              label-cols-lg="3"
+              content-cols-sm="8"
+              content-cols-lg="7"
+              :label="$t('labels.checkinDate')"
+              label-for="checkinPickerl"
+              class="mb-0"
+            >
+              <b-form-datepicker
+                id="checkinPicker"
+                v-model="checkin"
+                class="mb-2 col"
+                :min="minDatein"
+              ></b-form-datepicker>
+            </b-form-group>
+            <div class="skewed"></div>
+            <b-form-group
+              label-cols-sm="4"
+              label-cols-lg="3"
+              content-cols-sm
+              content-cols-lg="7"
+              :label="$t('labels.checkoutDate')"
+              label-for="checkoutPicker"
+              class="mb-0"
+            >
+              <b-form-datepicker
+                id="checkoutPicker"
+                v-model="checkout"
+                class="mb-2"
+                :min="minDateout"
+              ></b-form-datepicker>
+            </b-form-group>
+          </div>
         </div>
       </div>
     </Tab>
 
     <!-- /* */ -->
-    <Tab
-      :title="$t('wizard.step2Title')"
-      :selected="currentActive == 1"
-      :satisfied="roomSatisfied"
-      icon_class="building"
-    >
-      <History
-        :checkin="firstStage.checkin"
-        :checkout="firstStage.checkout"
-        :roomSelected="secondStage.roomSelected"
-        :viewSelected="secondStage.viewSelected"
-        :step="currentActive"
-      />
-      <div class="card-form">
-        <div class="card-form__inner space-evenly-column">
-          <section class="spikes">
-            <div class="pt-3 pb-3">
-              <h4>{{ $t("labels.room") }}</h4>
+
+    <Tab :satisfied="roomSatisfied" v-show="currentActive == 1" :key="2">
+      <div v-show="currentActive == 1">
+        <History
+          :checkin="firstStage.checkin"
+          :checkout="firstStage.checkout"
+          :roomSelected="secondStage.roomSelected"
+          :viewSelected="secondStage.viewSelected"
+          :step="currentActive"
+        />
+        <div class="card-form">
+          <div class="card-form__inner space-evenly-column">
+            <section class="spikes">
+              <div class="pt-3 pb-3">
+                <h4>{{ $t("labels.room") }}</h4>
+                <b-form-radio-group
+                  id="radio-group-room"
+                  v-model="roomSelected"
+                  :options="data.roomOptions"
+                  name="radio-room"
+                ></b-form-radio-group>
+              </div>
+            </section>
+            <div class="pt-5 pb-3">
+              <h4>{{ $t("labels.view") }}</h4>
+
               <b-form-radio-group
-                id="radio-group-room"
-                v-model="roomSelected"
-                :options="data.roomOptions"
-                name="radio-room"
+                id="radio-group-view"
+                v-model="viewSelected"
+                :options="data.viewOptions"
+                name="radio-view"
               ></b-form-radio-group>
             </div>
-          </section>
-          <div class="pt-5 pb-3">
-            <h4>{{ $t("labels.view") }}</h4>
-
-            <b-form-radio-group
-              id="radio-group-view"
-              v-model="viewSelected"
-              :options="data.viewOptions"
-              name="radio-view"
-            ></b-form-radio-group>
           </div>
         </div>
       </div>
     </Tab>
     <!-- /* */ -->
 
-    <Tab
-      :title="$t('wizard.step3Title')"
-      :selected="currentActive == 2"
-      :satisfied="invaildCard"
-      icon_class="credit-card"
-    >
-      <History
-        :checkin="firstStage.checkin"
-        :checkout="firstStage.checkout"
-        :roomSelected="secondStage.roomSelected"
-        :viewSelected="secondStage.viewSelected"
-        :step="currentActive"
-      />
-      <div>
-        <CardForm
-          ref="refCard"
-          :form-data="formData"
-          @input-card-number="updateCardNumber"
-          @input-card-name="updateCardName"
-          @input-card-month="updateCardMonth"
-          @input-card-year="updateCardYear"
-          @input-card-cvv="updateCardCvv"
-        ></CardForm>
+    <Tab :satisfied="invaildCard" v-show="currentActive == 2" :key="3">
+      <div v-show="currentActive == 2">
+        <History
+          :checkin="firstStage.checkin"
+          :checkout="firstStage.checkout"
+          :roomSelected="secondStage.roomSelected"
+          :viewSelected="secondStage.viewSelected"
+          :step="currentActive"
+        />
+        <div>
+          <CardForm
+            ref="refCard"
+            :form-data="formData"
+            @input-card-number="updateCardNumber"
+            @input-card-name="updateCardName"
+            @input-card-month="updateCardMonth"
+            @input-card-year="updateCardYear"
+            @input-card-cvv="updateCardCvv"
+          ></CardForm>
+        </div>
       </div>
     </Tab>
   </Wizard>
@@ -132,6 +130,7 @@ export default {
   data() {
     return {
       data,
+      transition: "increase",
       currentActive: 0,
       minDatein: '',
       minDateout: '',
@@ -224,8 +223,10 @@ export default {
     },
 
 
-    changeTab(val) {
+    changeTab(val, type) {
+      this.transition = type
       this.currentActive = val;
+
     },
 
     checkinSatisfied() {
@@ -313,19 +314,49 @@ export default {
 
 
 <style scoped>
+.increase-enter {
+  opacity: 0;
+  transform: translateX(-200px);
+}
+
+.increase-enter-active {
+  transition: all 2s ease-out;
+}
+
+.increase-enter-to {
+  opacity: 1;
+}
+
+.decrease-enter {
+  opacity: 0;
+  transform: translateX(+200px);
+}
+
+.decrease-enter-active {
+  transition: all 2s ease-out;
+}
+
+.decrease-enter-to {
+  opacity: 1;
+}
+
 .space-evenly-column {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 
 .skewed {
   background: rgb(44, 62, 80);
   background: linear-gradient(
-    0deg,
-    rgba(44, 62, 80, 1) 0%,
-    rgba(255, 255, 255, 1) 100%
+    180deg,
+    rgba(44, 62, 80, 1) 10%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(44, 62, 80, 1) 90%
   );
+  background-clip: content-box;
+  min-height: 20px;
+  border-radius: 20px;
 }
 
 .spikes {

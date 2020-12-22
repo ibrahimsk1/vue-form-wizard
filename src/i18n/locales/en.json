@@ -11,8 +11,8 @@
     "labels":{
         "checkinDate":"Check-in Date:",
         "checkoutDate":"Check-out Date:",
-        "room":"Room Type:",
-        "view":"View Type:"
+        "room":"Room Type",
+        "view":"View Type"
     },
 
     "card": {

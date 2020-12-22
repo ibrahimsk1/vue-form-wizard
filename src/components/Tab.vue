@@ -1,5 +1,5 @@
 <template>
-<div v-show="selected">
+<div>
     <slot></slot>
 </div>
 </template>
@@ -8,15 +8,6 @@
 export default {
     name: 'tab',
     props: {
-        title: {
-            default: ""
-        },
-        selected: {
-            default: false
-        },
-        icon_class:{
-            default:""
-        },
         satisfied:{
             type: Function,
             default: () => {

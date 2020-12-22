@@ -6,7 +6,7 @@
     color: #2c3e50;
     margin-top: 60px;
     margin-bottom: 60px;
-    
+
 }
 
 $wizard-color-neutral: #ccc !default;
@@ -92,8 +92,10 @@ body {
         box-shadow: 0 5px 5px 0 rgba(90, 116, 148, 0.4);
         border-radius: 10px;
         padding: 5px;
-        margin-bottom:30px;
+        margin-bottom: 30px;
     }
+
+
 
     &__inner__nav {
         background: #fff;
@@ -101,7 +103,7 @@ body {
         border-radius: 10px;
         padding: 35px;
         max-width: 1000px;
-        margin:auto;
+        margin: auto;
 
         @media screen and (max-width: 480px) {
             padding: 25px;

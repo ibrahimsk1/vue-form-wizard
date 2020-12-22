@@ -3,7 +3,7 @@
     <li
       v-for="(tab , ix) in tabs"
       is="WizardNavigationItem"
-      :key="tab.title"
+      :key="$t(`${tab.title}`)"
       :step="tab"
       :currentActive="currentActive"
       :ix="ix"
@@ -18,7 +18,7 @@ export default {
     components:{
         WizardNavigationItem
     },
-    props: ["tabs", "currentActive"]
+    props: ["tabs", "currentActive"],
 }
 </script>
 

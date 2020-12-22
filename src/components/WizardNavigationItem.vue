@@ -2,7 +2,7 @@
   <li :class="indicatorclass">
     <div class="step"><b-icon :icon="step.icon_class"></b-icon></div>
     <div class="caption hidden-xs hidden-sm">
-      Step <span v-text=" ( ix +1 )"></span>: <span v-text="step.title"></span>
+      Step <span v-text=" ( parseInt(ix) + 1 )"></span>: <span v-text="$t(`${step.title}`)"></span>
     </div>
   </li>
 </template>

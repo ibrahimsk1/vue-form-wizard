@@ -24,3 +24,18 @@ export const data = {
     ]
 
 }
+
+export const wizardHeader = {
+    0: {
+        title : 'wizard.step1Title',
+        icon_class : "calendar-date"
+    },
+    1: {
+        title : 'wizard.step2Title',
+        icon_class : "building"
+    },
+    2: {
+        title : 'wizard.step3Title',
+        icon_class : "credit-card"
+    }
+}
