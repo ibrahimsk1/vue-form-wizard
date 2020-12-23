@@ -40,7 +40,7 @@ export default {
   computed: {
     leftCalc() {
       if (this.currentActive === this.tabs.header.length) {
-        return { "display": "none"};
+        return { "display": "none" };
       }
       let interval = 100 / this.tabs.header.length;
       let leftVal = this.currentActive * interval + interval / 2;
