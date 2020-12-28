@@ -1,9 +1,8 @@
 # vue form wizard
 
 - vue form wizard
-- vue interactive credit card / https://github.com/muhammed/vue-interactive-paycard
 
-![Hotel Reservation App Demo](demo/fullwizard.gif)
+![Hotel Reservation App Demo](demo/octreeWizard.gif)
 
 ## Project setup
 ```
