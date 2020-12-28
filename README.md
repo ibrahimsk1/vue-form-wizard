@@ -1,7 +1,7 @@
-# Hotel Reservation App
+# vue form wizard
 
 - vue form wizard
-- vue credit card
+- vue interactive credit card / https://github.com/muhammed/vue-interactive-paycard
 
 ![Hotel Reservation App Demo](demo/fullwizard.gif)
 
