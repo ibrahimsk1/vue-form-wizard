@@ -7,7 +7,7 @@
       </div>
       <div>
         <label>{{ $t("labels.checkoutDate") }}</label
-        ><label>{{ checkin }}</label>
+        ><label>{{ checkout }}</label>
       </div>
     </div>
     <div v-if="step == 2" class="flex">

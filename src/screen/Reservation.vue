@@ -388,10 +388,9 @@ export default {
   z-index: 10;
   display: block;
   height: 50px;
-  background-size: 50px 100%;
   background-image: linear-gradient(135deg, #2c3e50 25%, transparent 25%),
     linear-gradient(225deg, #2c3e50 25%, transparent 25%);
-  background-position: 0 0;
+
 }
 </style>
 
