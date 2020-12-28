@@ -1,4 +1,6 @@
-# hotel_reservation_app
+# Hotel Reservation App
+
+![Hotel Reservation App Demo](demo/all.gif)
 
 ## Project setup
 ```
