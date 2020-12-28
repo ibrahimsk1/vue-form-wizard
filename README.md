@@ -1,6 +1,8 @@
 # Hotel Reservation App
+
 - vue form wizard
 - vue credit card
+
 ![Hotel Reservation App Demo](demo/fullwizard.gif)
 
 ## Project setup
