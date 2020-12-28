@@ -14,6 +14,18 @@
         "room":"Room Type",
         "view":"View Type"
     },
+    "warnings":{
+      "checkinWarning":"You should choose Check-in date! ",
+      "checkoutWarning":"You should choose  Check-out date! ",
+      "roomWarning":"You should choose room type! ",
+      "viewWarning":"You should choose view type! ",
+      "cardNameWarning":"You should choose card name! ",
+      "cardMonthWarning":"You should choose card month! ",
+      "cardCvvWarning":"You should choose card cvv! ",
+      "cardYearWarning":"You should choose card year! ",
+      "cardNumberWarning":"You should choose valid card number! "
+
+    },
 
     "card": {
       "cardHolder": "Card Holder",

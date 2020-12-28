@@ -48,7 +48,7 @@
 
     <!-- /* */ -->
 
-    <Tab :satisfied="roomSatisfied" v-show="currentActive == 1" :key="2">
+    <Tab :satisfied="roomSatisfied" v-show="currentActive == 1" :key="1">
       <div v-show="currentActive == 1">
         <History
           :checkin="firstStage.checkin"
@@ -86,7 +86,7 @@
     </Tab>
     <!-- /* */ -->
 
-    <Tab :satisfied="invaildCard" v-show="currentActive == 2" :key="3">
+    <Tab :satisfied="invaildCard" v-show="currentActive == 2" :key="2">
       <div v-show="currentActive == 2">
         <History
           :checkin="firstStage.checkin"
@@ -108,7 +108,7 @@
         </div>
       </div>
     </Tab>
-    <Tab :satisfied="invaildCard" v-show="currentActive == 3" :key="4">
+    <Tab :satisfied="invaildCard" v-show="currentActive == 3" :key="3">
       <div v-show="currentActive == 3">
         <div>Done!</div>
       </div>
@@ -238,11 +238,11 @@ export default {
       let msg = ""
       let check = true
       if (this.firstStage.checkin === '') {
-        msg += "Check-in date should choose! "
+        msg += this.$t('warnings.checkinWarning');
         check = false;
       }
       if (this.firstStage.checkout === '') {
-        msg += "Check-out date should choose! "
+        msg += this.$t('warnings.checkoutWarning');
         check = false;
       }
       let type = "warning"
@@ -253,11 +253,11 @@ export default {
       let msg = ""
       let check = true
       if (this.roomSelected === '') {
-        msg += "You should choose room type! "
+        msg += this.$t('warnings.roomWarning');
         check = false;
       }
       if (this.viewSelected === '') {
-        msg += "You should choose view type! "
+        msg += this.$t('warnings.viewWarning');
         check = false;
       }
       let type = "warning"
@@ -277,25 +277,25 @@ export default {
       let msg = "";
       let check = true
       if (this.$refs.refCard.$props.formData.cardName === "") {
-        msg += "You should choose card name! "
+        msg += this.$t('warnings.cardNameWarning');
         check = false;
       }
       if (this.$refs.refCard.$props.formData.cardMonth === "") {
-        msg += "You should choose card month! "
+        msg += this.$t('warnings.cardMonthWarning');
         check = false;
       }
       if (this.$refs.refCard.$props.formData.cardCvv === "") {
-        msg += "You should choose card cvv! "
+        msg += this.$t('warnings.cardCvvWarning');
         check = false;
       }
 
       if (this.$refs.refCard.$props.formData.cardYear === "") {
-        msg += "You should choose card year! "
+        msg += this.$t('warnings.cardYearWarning');
         check = false;
       }
 
       if (this.$refs.refCard.$props.formData.cardNumberNotMask.length < 11) {
-        msg += "You should choose valid card number! "
+        msg += this.$t('warnings.cardNumberWarning');
         check = false;
       }
 

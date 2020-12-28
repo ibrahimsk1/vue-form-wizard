@@ -6,9 +6,14 @@
       :disabled="checkBackButton()"
       @click="previousTab()"
     >
-      {{ $t('wizard.prev') }}
+      {{ $t("wizard.prev") }}
     </button>
-    <button type="button" class="ml-5 btn btn-primary" @click="nextTab()">
+    <button
+      type="button"
+      class="ml-5 btn btn-primary"
+      :disabled="checkNextButton()"
+      @click="nextTab()"
+    >
       {{ nextButtonTitle }}
     </button>
   </div>
@@ -32,8 +37,7 @@ export default {
       return !(this.currentActive > 0);
     },
     checkNextButton() {
-      console.log(2);
-      if (this.currentActive < this.totalTabs) {
+      if (this.currentActive < this.totalTabs - 1 ) {
         return false;
       }
       return true;
@@ -52,9 +56,9 @@ export default {
     },
     changeCurrentActive(type) {
       if (type == "increase") {
-        this.changeTab(this.currentActive + 1 , "increase")
+        this.changeTab(this.currentActive + 1, "increase")
       } else if (type == "decrease") {
-        this.changeTab(this.currentActive - 1 , "decrease")
+        this.changeTab(this.currentActive - 1, "decrease")
       }
     }
   },
