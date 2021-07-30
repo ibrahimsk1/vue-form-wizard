@@ -1,6 +1,6 @@
 # vue form wizard
 
-- vue form wizard
+- hotel app form wizard with debit card payment developed with vue js 
 
 ![Hotel Reservation App Demo](demo/octreeWizard.gif)
 
